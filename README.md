@@ -70,7 +70,7 @@ module "nsxt_alb_virtual_service" {
   ca_certificate_required       = true
   cert_alias                    = "US1-domain.com-SSL-Certificate"
 
-  virtual_ip_address            = "204.232.237.200"
+  virtual_ip_address            = "8.8.8.8"
 
   service_ports = [
     {
