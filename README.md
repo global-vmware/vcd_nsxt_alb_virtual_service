@@ -54,7 +54,7 @@ This Terraform module will deploy an NSX-T ALB (Advanced Load Balancer) Virtual 
 
 ```terraform
 module "nsxt_alb_virtual_service" {
-  source                        = "github.com/global-vmware/nsxt_alb_virtual_service.git?ref=v1.1.0""
+  source                        = "github.com/global-vmware/vcd_nsxt_alb_virtual_service.git?ref=v1.1.0"
 
   vdc_group_name                = "<US1-VDC-GRP-NAME>"
   vdc_org_name                  = "<US1-VDC-ORG-NAME>"
@@ -70,7 +70,7 @@ module "nsxt_alb_virtual_service" {
   ca_certificate_required       = true
   cert_alias                    = "US1-domain.com-SSL-Certificate"
 
-  virtual_ip_address            = "204.232.237.200"
+  virtual_ip_address            = "8.8.8.8"
 
   service_ports = [
     {
