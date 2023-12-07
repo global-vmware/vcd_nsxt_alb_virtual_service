@@ -10,6 +10,7 @@ terraform {
 }
 
 data "vcd_vdc_group" "dcgroup" {
+  org   = var.vdc_org_name
   name  = var.vdc_group_name
 }
 
@@ -20,21 +21,25 @@ data "vcd_nsxt_edgegateway" "edge_gateway" {
 }
 
 data "vcd_nsxt_alb_edgegateway_service_engine_group" "segroup" {
+  org                       = var.vdc_org_name
   edge_gateway_id           = data.vcd_nsxt_edgegateway.edge_gateway.id
   service_engine_group_name = var.service_engine_group_name
 }
 
 data "vcd_nsxt_alb_pool" "alb-pool" {
+  org             = var.vdc_org_name
   name            = var.pool_name
   edge_gateway_id = data.vcd_nsxt_edgegateway.edge_gateway.id
 }
 
 data "vcd_library_certificate" "ca-cert" {
-  for_each = var.ca_certificate_required ? {cert_alias = var.cert_alias} : {}
-  alias = each.value
+  org       = var.vdc_org_name
+  for_each  = var.ca_certificate_required ? {cert_alias = var.cert_alias} : {}
+  alias     = each.value
 }
 
 resource "vcd_nsxt_alb_virtual_service" "alb-virtual-service" {
+  org                         = var.vdc_org_name
   name                        = var.virtual_service_name
   edge_gateway_id             = data.vcd_nsxt_edgegateway.edge_gateway.id
   description                 = var.virtual_service_description
