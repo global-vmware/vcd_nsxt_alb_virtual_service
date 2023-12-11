@@ -1,6 +1,6 @@
 # Terraform VMware Cloud Director NSX-T ALB Virtual Service Module
 
-This Terraform module will deploy an NSX-T ALB (Advanced Load Balancer) Virtual Service into an existing VMware Cloud Director (VCD) environment. This module can be used to provsion new ALB Virtual Services into [Rackspace Technology SDDC Flex](https://www.rackspace.com/cloud/private/software-defined-data-center-flex) VCD Data Center Regions.
+This Terraform module will deploy an NSX-T ALB (Advanced Load Balancer) Virtual Service into an existing VMware Cloud Director (VCD) environment. This module can be used to provision new ALB Virtual Services into [Rackspace Technology SDDC Flex](https://www.rackspace.com/cloud/private/software-defined-data-center-flex) VCD Data Center Regions.
 
 ## Requirements
 
@@ -54,7 +54,7 @@ This Terraform module will deploy an NSX-T ALB (Advanced Load Balancer) Virtual 
 
 ```terraform
 module "nsxt_alb_virtual_service" {
-  source                        = "github.com/global-vmware/vcd_nsxt_alb_virtual_service.git?ref=v1.1.0"
+  source                        = "github.com/global-vmware/vcd_nsxt_alb_virtual_service.git?ref=v1.1.1"
 
   vdc_group_name                = "<US1-VDC-GRP-NAME>"
   vdc_org_name                  = "<US1-VDC-ORG-NAME>"
